@@ -1,23 +1,638 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+<!-- Schema.org FAQ 구조화 데이터 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "KT 인터넷 설치 시 현금 사은품은 얼마나 받을 수 있나요? (2026년 기준)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2026년 방송통신위원회 경품고시제에 따라 인터넷 단독 상품과 인터넷+TV 결합 상품의 최대 현금 사은품 상한선이 정해져 있습니다. 업체마다 '현금지원 금액'은 차이가 있을 수 있지만, 법정 한도 내에서 최대한의 혜택을 제공하는 것이 중요합니다. 보통 온라인 공식 비교 업체를 통해 가입 시 본사나 오프라인 매장보다 더 많은 현금 지원을 받을 수 있으며, 이는 경품고시제 한도 내에서 합법적으로 이루어집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "KT 기가 인터넷과 일반 인터넷(100M)의 차이점은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "가장 큰 차이점은 속도와 안정성입니다. 일반 인터넷(100Mbps)은 웹서핑이나 간단한 스트리밍에 적합하지만, 여러 명이 동시에 사용하거나 고용량 파일 다운로드, 4K/8K 스트리밍, 온라인 게임 등을 할 때는 500Mbps 또는 1Gbps 속도의 기가 인터넷이 훨씬 유리합니다. KT는 특히 전국적으로 대칭형 인터넷망이 잘 구축되어 있어 업로드/다운로드 속도가 일정하다는 장점이 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "KT 인터넷 설치 비용과 할인 혜택을 가장 저렴하게 받는 팁이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "인터넷 설치 비용을 절약하는 가장 확실한 방법은 휴대폰 결합 할인(프리미엄 가족 결합, 총액 결합 할인 등)을 활용하는 것입니다. KT 휴대폰을 사용하는 가족 구성원이 있다면 월 요금 할인이 크게 적용되어 장기적으로 가장 저렴한 방법이 됩니다. 또한, 온라인 비교 업체를 통해 신규 가입 시 법정 최대 현금 사은품을 받는 것도 중요한 팁입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "인터넷 가입 시 사은품을 많이 주는 업체는 불법인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "일정 금액 이상의 과도한 사은품 지급은 방송통신위원회 경품고시제에 위배되어 불법입니다. 법정 상한선을 넘는 '60만 원, 70만 원 이상'을 광고하는 업체는 사기일 가능성이 높으므로, 반드시 법정 한도 내에서 사은품을 지급하는지 확인해야 합니다. 안전한 가입을 위해서는 '사전 승낙서'를 보유한 합법적인 온라인 비교 업체를 선택하는 것이 중요합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "2026년에 KT 인터넷 재약정과 신규 가입 중 어떤 것이 더 유리한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "대부분의 경우 신규 가입이 압도적으로 유리합니다. 재약정 사은품은 보통 상품권 형태로 10~20만 원 수준인 반면, 신규 가입은 법정 최대 사은품(현금+상품권)을 받을 수 있어 혜택 차이가 큽니다. 다만 가족 결합 할인 등 기존에 받고 있던 혜택이 매우 크다면 재약정을 고려할 수도 있습니다."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- 스타일: 부드럽고 다채로운 색, 타이틀 강조, 계층 구조 -->
+<style>
+  :root {
+    --primary-color: #004C99; /* KT Blue */
+    --secondary-color: #FF5D00; /* Accent Orange */
+    --accent-color: #F0F4F8; /* Light BG */
+    --highlight-color: #E6F0FF; /* Soft Blue Highlight */
+    --text-color: #333333;
+    --bg-light: #F9F9FC;
+    --bg-white: #ffffff;
+    --btn-color: #FF5D00;
+    --btn-hover: #E84F00;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  header {
+    background-color: var(--primary-color);
+    padding: 20px 20px;
+    text-align: center;
+    color: var(--bg-white);
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 900;
+  }
+  header h1 a {
+    color: var(--bg-white);
+    text-decoration: none;
+  }
+  .hero {
+    background: url('https://images.pexels.com/photos/1001890/pexels-photo-1001890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    position: relative;
+    color: var(--bg-white);
+    text-align: center;
+    padding: 120px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 10;
+  }
+  .hero h1 {
+    font-size: 3.8em;
+    margin-bottom: 25px;
+    font-weight: 900;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  .hero p {
+    font-size: 1.6em;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  .cta-btn {
+    background-color: var(--btn-color);
+    color: var(--bg-white);
+    padding: 20px 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+  .cta-btn:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-5px);
+  }
+  .compare-form-box {
+    background-color: var(--bg-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 5px solid var(--primary-color);
+  }
+  .compare-form-box h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: 700;
+  }
+  .compare-form-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+  }
+  .compare-form-box input, .compare-form-box select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fcfcfc;
+  }
+
+  .content-section {
+    margin-top: 50px;
+    background-color: var(--bg-white);
+    padding: 70px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+  .content-section h2 {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 900;
+    text-align: center;
+  }
+  .content-section h3 {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--highlight-color);
+    padding-bottom: 10px;
+  }
+  .content-section p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  .feature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .feature-grid .item {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    padding: 30px;
+    background-color: var(--highlight-color);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .feature-grid .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  .feature-grid .item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    filter: invert(30%) sepia(80%) saturate(200%) hue-rotate(190deg); /* Colorize icons to match theme */
+  }
+  .feature-grid .item h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+  .keyword-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .keyword-list li {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  .keyword-list li:hover {
+    background-color: var(--secondary-color);
+  }
+  .faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+  }
+  .faq-item h3 {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+  .faq-item h3::after {
+    content: '+';
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    transition: transform 0.3s;
+  }
+  .faq-item.active h3::after {
+    content: '-';
+    transform: rotate(180deg);
+  }
+  .faq-item p {
+    display: none;
+    padding-top: 15px;
+    color: #555;
+    font-size: 1.1em;
+  }
+  .faq-item.active p {
+    display: block;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 1em;
+  }
+  .data-table th {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .data-table td:first-child {
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+
+  footer {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9em;
+  }
+  footer a {
+    color: var(--bg-white);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+  footer a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+  }
+  .section-image-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  .section-image-left img {
+    width: 40%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  .section-image-left div {
+    width: 55%;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .hero h1 { font-size: 3em; }
+    .hero p { font-size: 1.4em; }
+    .content-section h2 { font-size: 2.5em; }
+    .feature-grid .item { width: calc(50% - 20px); }
+    .section-image-left { flex-direction: column; }
+    .section-image-left img, .section-image-left div { width: 100%; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 80px 20px; }
+    .hero h1 { font-size: 2.5em; }
+    .hero p { font-size: 1.2em; }
+    .cta-btn { padding: 15px 30px; font-size: 1.1em; }
+    .compare-form-box { padding: 25px; }
+    .content-section h2 { font-size: 2em; }
+    .feature-grid .item { width: 100%; margin: 10px 0; }
+    .faq-item h3 { font-size: 1.3em; }
+    .data-table th, .data-table td { font-size: 0.9em; padding: 8px; }
+    .keyword-list li { margin: 3px; font-size: 0.9em; padding: 8px 15px; }
+  }
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<h1><a href="/">KT인터넷설치비교센터</a></h1>
+</div>
+</header>
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>2026년 KT 인터넷 설치, 현금 사은품 최대 지원 받는 방법</h1>
+            <p>KT 기가 인터넷, AI 지니 TV 결합 상품부터 원룸 인터넷까지, 전국 최저가 견적 비교를 지금 경험하세요.</p>
+            <div class="compare-form-box">
+                <h2>실시간 요금제 및 사은품 견적 요청</h2>
+                <p>간단한 정보 입력으로 2026년 최신 KT 인터넷 가입 혜택을 전문가와 상담하고 최저가를 확인하세요.</p>
+                <form action="#" method="post">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" name="phone" placeholder="휴대폰 번호를 입력하세요" required>
+                    <label for="address">설치 희망 주소지 (시/도, 상세 주소)</label>
+                    <input type="text" id="address" name="address" placeholder="예: 경기도 고양시 일산서구 주엽동" required>
+                    <label for="service_type">희망 서비스</label>
+                    <select id="service_type" name="service_type" required>
+                        <option value="">-- 선택하세요 --</option>
+                        <option value="internet_only">KT 인터넷 단독 (100M, 500M, 1G)</option>
+                        <option value="internet_tv">KT 인터넷 + TV 결합</option>
+                        <option value="ai_tv_phone">KT AI TV + 전화 + 인터넷 풀 패키지</option>
+                    </select>
+                    <label for="current_provider">현재 사용 중인 통신사</label>
+                    <select id="current_provider" name="current_provider" required>
+                        <option value="">-- 선택하세요 --</option>
+                        <option value="kt">KT (재약정/통신사 변경)</option>
+                        <option value="sk">SKT/SK브로드밴드</option>
+                        <option value="lg">LG U+</option>
+                        <option value="other">기타</option>
+                    </select>
+                    <label for="desired_speed">희망 인터넷 속도</label>
+                    <select id="desired_speed" name="desired_speed" required>
+                        <option value="">-- 선택하세요 --</option>
+                        <option value="100m">슬림 100M (1인 가구, 웹서핑)</option>
+                        <option value="500m">기가 라이트 500M (가족 단위, 스트리밍)</option>
+                        <option value="1g">기가 인터넷 1G (게임, 재택근무, 고화질)</option>
+                    </select>
+                    <button type="submit" class="cta-btn">무료 견적 요청하기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>왜 KT 인터넷을 선택해야 할까요?</h2>
+            <div class="feature-grid">
+                <div class="item">
+                    <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="빠른 속도 아이콘">
+                    <h3>압도적인 속도와 안정성</h3>
+                    <p>KT는 전국 대칭형 광케이블망 보급률 1위입니다. 업로드/다운로드 속도가 일정하며, 잦은 끊김 없이 고화질 영상 시청과 온라인 게임을 즐길 수 있습니다. 특히 SKT, LG U+ 등 타 통신사에 비해 비대칭형 인터넷 설치 지역이 현저히 적어 안정적인 품질을 보장합니다.</p>
+                </div>
+                <div class="item">
+                    <img src="https://images.pexels.com/photos/3861962/pexels-photo-3861962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="AI 서비스 아이콘">
+                    <h3>AI 기반 스마트 서비스 (AI 지니 TV)</h3>
+                    <p>KT만의 AI 음성인식 서비스 '기가지니'를 통해 TV 시청, 음악 감상, 홈IoT 제어 등 다양한 기능을 음성으로 간편하게 조작할 수 있습니다. AI 에이전트 서비스가 일상에 편리함을 더합니다.</p>
+                </div>
+                <div class="item">
+                    <img src="https://images.pexels.com/photos/3861961/pexels-photo-3861961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="결합 할인 아이콘">
+                    <h3>가족 결합 할인 최적화</h3>
+                    <p>KT 모바일 휴대폰을 사용하는 고객이라면 '프리미엄 가족 결합', '총액 결합 할인' 등으로 월 요금을 크게 할인받을 수 있습니다. 현금 사은품 외에도 장기적으로 가장 저렴한 케이티인터넷가격으로 이용할 수 있는 핵심입니다.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 50px;">함께 많이 찾는 키워드 (가입 필수 정보)</h3>
+            <ul class="keyword-list">
+                <li>#KT인터넷설치비용</li>
+                <li>#KT인터넷가입사은품</li>
+                <li>#KT인터넷요금제비교</li>
+                <li>#KT기가인터넷후기</li>
+                <li>#KT원룸인터넷</li>
+                <li>#KT인터넷현금지원</li>
+                <li>#KT인터넷추천업체</li>
+                <li>#KT인터넷결합할인</li>
+                <li>#KT인터넷속도측정</li>
+                <li>#KT재약정신규가입차이</li>
+                <li>#KT인터넷저렴한곳</li>
+                <li>#AI지니TV</li>
+                <li>#경품고시제</li>
+                <li>#내돈내산후기</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Product Comparison Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>KT 인터넷 요금제 및 상품 비교 (2026년 기준)</h2>
+            <p>KT는 고객의 사용 환경에 맞춰 다양한 속도의 요금제를 제공하고 있습니다. 단순히 현금 사은품 금액만 보고 결정하기보다는, 가족 구성원 수와 사용 목적(게임, 재택근무, 스트리밍 등)에 따라 적합한 속도를 선택하는 것이 중요합니다. 특히 2026년에는 AI 기술 발전과 함께 고화질 콘텐츠 사용이 증가하면서 100M보다는 500M 이상의 기가 인터넷을 추천합니다.</p>
+
+            <div class="section-image-left">
+                <img src="https://images.pexels.com/photos/5473138/pexels-photo-5473138.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="인터넷 요금제 비교">
+                <div>
+                    <h3>1. KT 인터넷 단독 상품 요금제</h3>
+                    <p>휴대폰 결합 할인을 제외한 기본 요금제(3년 약정 기준)입니다. KT는 100M(슬림), 500M(베이직/기가 라이트), 1G(에센스)로 상품을 구분하며, 인터넷 단독 가입 시에도 넉넉한 현금 사은품을 받을 수 있습니다. 100M 슬림 요금제는 1인 가구 또는 간단한 웹서핑용으로 적합합니다.</p>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>상품명</th>
+                                <th>속도</th>
+                                <th>월 요금 (3년 약정)</th>
+                                <th>주요 특징</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>KT 인터넷 슬림</td>
+                                <td>100Mbps</td>
+                                <td>22,000원</td>
+                                <td>가성비, 1인 가구 추천</td>
+                            </tr>
+                            <tr>
+                                <td>KT 기가 인터넷 콤팩트</td>
+                                <td>500Mbps</td>
+                                <td>33,000원</td>
+                                <td>가족 단위, 안정성, Giga WiFi 제공</td>
+                            </tr>
+                            <tr>
+                                <td>KT 기가 인터넷 에센스</td>
+                                <td>1Gbps</td>
+                                <td>38,500원</td>
+                                <td>고성능, 게임, 고화질 스트리밍</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #777;">*상기 요금은 부가세 포함 금액이며, 장비 임대료 및 설치비가 별도 청구될 수 있습니다. (2026년 3월 기준)</p>
+                </div>
+            </div>
+
+            <h3>2. KT 인터넷 + TV (AI 지니 TV) 결합 상품</h3>
+            <p>가장 많은 신규 가입자들이 선택하는 유형입니다. 인터넷과 TV를 함께 가입하면 요금 할인뿐만 아니라 더 많은 현금 사은품 혜택을 받을 수 있습니다. 특히 KT의 AI 지니 TV는 다양한 채널(경쟁사 대비 평균 30개 이상 많음)과 넷플릭스, 유튜브 등 OTT 서비스를 통합하여 제공하는 것이 장점입니다.</p>
+            <div class="section-image-left" style="flex-direction: row-reverse;">
+                <img src="https://images.pexels.com/photos/4009401/pexels-photo-4009401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="AI 지니 TV">
+                <div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>결합 상품</th>
+                                <th>월 요금 (3년 약정)</th>
+                                <th>주요 혜택</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>인터넷 100M + 지니TV 베이직</td>
+                                <td>34,100원</td>
+                                <td>합리적인 가격, 필수 채널, VOD 30만편</td>
+                            </tr>
+                            <tr>
+                                <td>인터넷 500M + 지니TV 에센스</td>
+                                <td>44,000원</td>
+                                <td>가장 인기 많은 조합, 고화질 TV 시청</td>
+                            </tr>
+                            <tr>
+                                <td>인터넷 1G + 지니TV 에센스</td>
+                                <td>49,500원</td>
+                                <td>최고 속도, 고사양 AI 기능, UHD 채널 다수</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #777;">*TV 요금제에 따라 채널 수 및 혜택에 차이가 있습니다. (2026년 3월 기준)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Expansion Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>KT 인터넷 가입 혜택: 현금 사은품과 결합 할인, 어떤 것을 중시해야 할까요?</h2>
+            <p>KT 인터넷을 신규로 설치할 때 '현금 사은품'과 '월 요금 할인'은 가장 중요한 혜택 요소입니다. 많은 소비자들이 현금 사은품의 금액(얼마)에 집중하지만, 장기적인 관점에서는 월 요금 할인이 더 큰 이익을 가져다줄 수 있습니다. 2026년 현재 통신사들은 신규 가입 고객 유치를 위해 현금지원, 상품권, AI 기기 증정 등 다양한 이벤트를 진행하고 있습니다.</p>
+
+            <h3>1. 현금 사은품, '경품고시제'를 반드시 확인하세요</h3>
+            <p>인터넷 가입 시장에서는 '경품고시제'라는 법률이 존재합니다. 이는 과도한 현금 사은품 경쟁을 막고 소비자 피해를 방지하기 위해 방송통신위원회에서 정한 기준입니다. 2026년 기준 법정 상한선을 초과하여 '현금 60만 원, 70만 원 이상'을 제시하는 업체는 불법입니다. 이러한 불법 업체들은 사은품 지급을 미루거나, 심지어 지급하지 않고 잠적하는 경우가 많아 소비자 피해로 이어집니다. 안전한 가입을 위해서는 '사전 승낙서'를 보유한 합법적인 온라인 비교 업체를 통해 법정 한도 내에서 최대한의 사은품을 받는 것이 가장 현명한 방법입니다.</p>
+
+            <h3>2. KT 가족 결합 할인: 장기적 절약의 핵심</h3>
+            <p>KT 휴대폰을 사용하는 가족 구성원이 있다면 'KT 프리미엄 가족 결합'이나 '총액 결합 할인'을 반드시 확인해야 합니다. 현금 사은품은 일회성으로 끝나지만, 결합 할인은 3년 약정 기간 동안 매월 요금을 할인받아 총 지출 비용을 크게 절감할 수 있습니다. 예를 들어, 가족 2인이상 77,000원 이상 요금제를 사용할 경우 휴대폰 요금 25% 할인을 받을 수 있으며, 이는 현금 사은품 혜택보다 훨씬 큰 금액입니다. 결합 조건은 복잡할 수 있으니 전문가와의 상담을 통해 우리 가족에게 가장 적합한 할인 혜택을 찾아야 합니다.</p>
+
+            <h3>3. 신규 가입 vs 재약정: 2026년 선택 기준</h3>
+            <p>많은 소비자들이 기존 통신사 KT를 계속 이용할 때 '재약정'을 고민합니다. 하지만 2026년 현재, 재약정 혜택은 신규 가입 혜택의 절반도 되지 않습니다. 재약정 사은품은 보통 10~20만 원 상당의 상품권이 대부분이지만, 신규 가입은 법정 최대 현금 사은품을 받을 수 있습니다. 약정 기간이 끝난 고객이라면 통신사를 옮겨서 신규 가입하는 것이 가장 이득이며, 이사를 하면서 약정 만료가 되는 경우에도 신규 가입을 고려해야 합니다.</p>
+        </div>
+    </section>
+
+    <!-- Regional Coverage Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>전국 어디든 KT 인터넷 설치 가능 지역 안내 및 속도 차이 (서울/경기/부산)</h2>
+            <p>KT는 대한민국 통신사 중 가장 넓고 안정적인 커버리지를 자랑합니다. 특히 서울, 부산, 대구, 인천, 광주, 대전, 울산, 세종 등 8대 광역시와 경기도(수원, 용인, 고양, 성남, 부천 등), 강원도(춘천, 원주, 강릉 등), 충청도(청주, 천안 등), 경상도(창원, 김해, 포항 등), 전라도(전주, 순천 등), 제주도까지 전국 모든 지역에서 KT 인터넷 설치가 가능합니다. 다만, 신규 건축된 아파트는 대부분 대칭형 망으로 설치되지만, 오래된 빌라나 주택은 지역에 따라 비대칭형으로 설치될 가능성이 있습니다.</p>
+            <p>비대칭형 인터넷은 업로드 속도가 현저히 느려져 온라인 게임이나 재택근무(화상 회의) 시 큰 불편함을 겪을 수 있습니다. KT는 타 통신사 대비 대칭형 망 보급률이 높아 비대칭형 설치 확률이 낮다는 장점이 있습니다. 특정 지역(경기도 파주, 일산, 부산 해운대, 서울 강남 등)의 상세 설치 가능 여부와 대칭형 여부는 반드시 가입 전 설치 주소로 확인해야 합니다.</p>
+
+            <h3>주요 지역별 KT 인터넷 설치 가능 여부</h3>
+            <ul>
+                <li><strong>서울</strong>: 강남구, 서초구, 송파구, 강동구 등 강남 3구부터 강북구, 도봉구 등 전 지역에서 안정적인 서비스 제공.</li>
+                <li><strong>경기도</strong>: 고양시 일산(서구, 동구), 성남시 분당, 수원시 영통, 화성시 동탄 등 신도시 지역 기가 인터넷 커버리지 최적화.</li>
+                <li><strong>부산</strong>: 해운대구, 수영구, 남구 등 주요 주거 지역과 상업 지구에서 광케이블망 구축 완료.</li>
+                <li><strong>인천</strong>: 연수구 송도, 서구 청라 등 신도시 중심으로 1G 이상 서비스 활발.</li>
+                <li><strong>지방 광역시</strong>: 대구, 광주, 대전, 울산 등 주요 지역에서 비대칭형 걱정 없이 안정적인 품질 제공.</li>
+            </ul>
+
+            <h3>AI 기술을 활용한 인터넷 서비스의 미래</h3>
+            <p>2026년에는 AI 기술이 인터넷 서비스의 품질 향상과 고객 지원에 중요한 역할을 하고 있습니다. KT는 AI 에이전트 '지니'를 통해 고객의 사용 패턴을 학습하고, 최적의 네트워크 환경을 유지하도록 돕습니다. 또한, AI 챗봇(ChatGPT, Gemini 등)을 활용하여 고객 문의에 24시간 실시간으로 답변하며, 복잡한 요금제 비교와 가입 혜택 상담도 AI 추천 시스템을 통해 개인화되어 제공될 수 있습니다.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+
+            <div class="faq-item">
+                <h3>KT 인터넷 설치 신청은 어디서 하는 것이 가장 저렴하고 안전한가요?</h3>
+                <p>KT 고객센터(본사)와 오프라인 대리점, 온라인 비교 업체 세 가지 경로가 있습니다. 현금 사은품을 기준으로 비교했을 때 온라인 비교 업체가 가장 많은 혜택을 제공하며, 본사는 요금 할인 위주로 제공합니다. 온라인 업체 선택 시에는 '사전 승낙서'가 있는지, 현금 사은품을 설치 당일 지급하는지(당일 입금) 확인하는 것이 사기 예방에 중요합니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>KT 인터넷 설치비용은 얼마나 발생하나요?</h3>
+                <p>신규 가입 시 기본 설치비는 인터넷 단독 22,000원, 인터넷+TV 결합 시 36,000원(출동비 36,000원에서 4,000원 할인 적용) 가량 발생합니다. 이 설치비는 첫 달 요금에 합산 청구됩니다. 또한 주말이나 야간 설치를 요청할 경우 할증이 적용되어 추가 비용이 발생할 수 있으니, 주중 낮 시간대 설치를 추천드립니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>KT 인터넷 가입 시 현금 사은품 지급 시기는 언제인가요?</h3>
+                <p>합법적인 온라인 업체(대리점)를 통해 가입하는 경우, 대부분 설치 당일(개통 완료 후) 오후 4시~7시 사이에 현금 사은품을 입금해 주는 것이 일반적입니다. 사은품을 분할하여 지급하겠다는 업체는 불법일 가능성이 높으므로 주의해야 합니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>원룸 또는 1인 가구에게 추천하는 KT 요금제는 무엇인가요?</h3>
+                <p>1인 가구는 100M 슬림 요금제만으로도 충분한 속도와 안정성을 누릴 수 있습니다. 하지만 고화질 OTT 스트리밍이나 고사양 게임을 즐긴다면 500M 기가 인터넷 콤팩트 요금제를 추천합니다. 100M와 500M의 요금제 금액 차이가 크지 않으므로, 월 3천 원~5천 원 정도의 추가 비용으로 더 쾌적한 환경을 구축할 수 있습니다.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>KT 인터넷 설치 시 장비 임대료는 얼마인가요?</h3>
+                <p>KT는 3년 약정 시 인터넷 장비(모뎀) 임대료는 면제되거나 할인됩니다. 그러나 WiFi 공유기(GiGA WiFi wave)는 별도 임대료가 발생할 수 있습니다. 500M 이상 요금제에서는 기본 제공되는 경우가 많으니, 가입 시 제공 여부를 꼭 확인해야 합니다.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Trust and Authority Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>신뢰할 수 있는 외부 자료 및 참고 링크</h2>
+            <p>KT 인터넷 설치 및 통신 서비스 가입 시 소비자 권익 보호 및 정확한 정보 확인을 위해 다음의 공인된 기관 자료를 참고하시기 바랍니다.</p>
+            <ul>
+                <li><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%9C%A0%EC%84%A0%ED%86%B5%EC%8B%A0%EC%82%AC%EC%97%85%EB%B2%95" target="_blank" rel="noopener">유선통신사업법 (법제처)</a> - 유선통신 서비스 제공에 대한 법적 기준 및 소비자 보호 조항 확인.</li>
+                <li><a href="https://www.kcc.go.kr/index.do" target="_blank" rel="noopener">방송통신위원회 (KCC)</a> - 통신 시장 정책 및 경품고시제 등 통신사 마케팅 규정 관련 정보.</li>
+                <li><a href="https://www.kt.com/" target="_blank" rel="noopener">KT 공식 웹사이트</a> - KT 요금제 및 상품에 대한 정확한 정보, 약관 확인.</li>
+                <li><a href="https://namu.wiki/w/KT%EC%9D%B8%ED%84%B0%EB%84%B7" target="_blank" rel="noopener">나무위키: KT 인터넷</a> - KT 인터넷 서비스의 장단점, 역사 등 중립적인 정보 제공.</li>
+                <li><a href="https://www.sbiz.or.kr/" target="_blank" rel="noopener">소상공인시장진흥공단</a> - 소상공인 대상 KT 오피스넷, 기업용 인터넷 상품 정보 및 지원 사업 확인.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<script>
+    // FAQ 토글 기능
+    document.querySelectorAll('.faq-item h3').forEach(item => {
+        item.addEventListener('click', event => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+</script>
